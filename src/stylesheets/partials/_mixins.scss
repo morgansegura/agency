@@ -57,8 +57,7 @@ USEAGE:
   animation: #{$str};      
 }
 
-/* Graditents */
-
+/* Gradients */
 @mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
 	background-color: $to;
 	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
@@ -69,7 +68,6 @@ USEAGE:
 }
 
 /* Box Sizing */
-
 @mixin box-sizing($type: border-box) {
 	-webkit-box-sizing: $type;
 	-moz-box-sizing:    $type;
@@ -78,7 +76,6 @@ USEAGE:
 }
 
 /* Border Radius */
-
 @mixin border-radius($radius...) {
 	-webkit-border-radius: $radius;
 	-moz-border-radius:    $radius;
@@ -88,30 +85,51 @@ USEAGE:
 }
 
 /* Border Radius */
-
 @mixin box-shadow($options...) {
 	-webkit-box-shadow: $options;
-	-moz-box-shadow: 		$options;
-			 box-shadow: 		$options;
+	-moz-box-shadow: 	$options;
+	box-shadow: 		$options;
 }
 
 /* Opacity */
-
 @mixin opacity($trans) {
   filter: alpha(opactiy=($trans * 100));
-  -ms-filter: 		"progid:DXImageTransform.Microsoft.Alpha(Opactiy=#{$trans * 100})";
-  -moz-opacity: 	$trans;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opactiy=#{$trans * 100})";
+  -moz-opacity: $trans;
   -khtml-opacity: $trans;
-  opacity: 				$trans;
+  opacity: $trans;
 }
 
-/* Opacity */
+// $dir = Direction of gradient
+// $from = Starting color
+// $to = Ending color
+// $width = Border width/thickness
 
+@mixin border-gradient($dir, $from, $to, $width) {
+	border-left: $width solid $from;
+	border-right: $width solid $to;
+	background-image:
+	  // Needed for both the top and bottom borders
+	  -webkit-linear-gradient($dir, $from, $to),
+	  -webkit-linear-gradient($dir, $from, $to);
+	background-size: 100% $width;
+	background-position: 0 100%, 0 0;
+	background-repeat: no-repeat;
+	background-clip: border-box;
+  }
+ 
+  @mixin text-gradient($dir, $from, $to) {
+	background: -webkit-linear-gradient($dir, $from, $to);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+  }
+
+/* Center Middle */
 @mixin centerer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  @include transform(translate(-50%, -50%));
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	@include transform(translate(-50%, -50%));
 }
 
 /* Hex to RGBA */
@@ -121,7 +139,7 @@ USEAGE:
 	$solid-color: mix($opaque, $background, $percent);
 	#{$attribute}: $solid-color;
 	#{$attribute}: $color;
-  }
+}
 
 // --------------------------------------------------
 // Flexbox SASS mixins

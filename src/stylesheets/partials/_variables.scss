@@ -10,18 +10,16 @@ $alert-blue:        #d5edf8;
 $black:             #000;
 $white:             #fff;
 
-$light-gray:        #ecf0f1;
-$gray:              #a9acad;
-$text-color:        $black;
-$meta-gray:         #a0a3a4;
-$charcoal:          #2b2b2b;
-
 /* Theme Colors */
-$red:               #990000;
-$hover:             #B23C43;
-$tan:               #d6c7b3;
+$teil:              #00e0d0;
+$blue:              #4aa3cc;
+$violet:            #000033;
+$purple:            #311d5e;
 
-$link-color:        $red;
+$headline:          #413d4b;
+$text:              #333;
+
+$link-color:        $teil;
 $link-hover:        darken($link-color, 9%);
 
 $border-color:      #ccc;

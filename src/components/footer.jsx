@@ -6,11 +6,11 @@ export default class Footer extends Component {
   }
   render() {
     return (
-      <div id="footer">
-        <footer>
+      <footer id="footer" className="footer">
+        <div className="container">
           <h1>This is the Footer.</h1>
-        </footer>
-      </div>
+        </div>
+      </footer>
     );
   }
 }

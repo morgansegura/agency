@@ -14,13 +14,191 @@
 @import "modules/_buttons.scss";
 
 
-/* Defaults */
-
+// Defaults
 body {
-  background-color: $red;
-  font-family: $sans-serif;
+  position: relative;
+  background-color: #fff;
+}
+ul,
+nav {
+	list-style: none;
+}
+a {
+  @include transition(all .3s ease-in-out);
 }
 
-/* Basic Elements */
+h3 {
+  font: 700 rem(22px) $serif;
+  color: $headline;
+  margin-bottom: rem(25px);
+}
+p {
+  font: 400 rem(14px) $sans-serif;
+  line-height: 1.7;
+}
+hr {
+  max-width: rem(50px);
+  border: none;
+  height: 2px;
+  background-color: white(.5);
+}
+
+// Basic Elements
+
+section {
+	@include flexbox();
+	@include flex-direction(column);
+	@include align-items(center);
+
+}
+
+footer {
+
+}
+
+.container {
+  position: relative;
+  max-width: rem(960px);
+  margin: 0 auto;
+}
+
+// Header Section
+
+.header {
+	position: absolute;
+	width: 100%;
+	@include flexbox();
+	@include justify-content(space-between);
+	@include flex-wrap(wrap);
+	@include align-items(center);
+	padding: rem(35px) 0 0;
+	@include animation(1s fadein 0.5s forwards);
+	@include opacity(0);
+  z-index: 1;
+  
+  h2 {
+    padding-bottom: rem(30px);
+    .logo {
+      position: relative;
+      top: rem(25px);
+    }
+    font-family: $sans-thin;
+    font-size: rem(30px);
+    @include text-gradient(right, #00e0d0, #4aa3cc);
+    a {
+      text-decoration: none;
+      color: $white;
+    }
+  }
+  nav {
+    @include flexbox();
+    margin-right: rem(-15px);
+
+    li {
+      margin: 0 rem(15px);
+      font-family: $alternate;
+      font-size: rem(13px);
+      @include justify-content(space-between);
+    }
+    li > a {
+      color: white(.8);
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &:hover, 
+      &:active {
+        color: white(1);
+      }
+    }
+  }
+}
+
+// Hero Section
+
+.hero {
+	position: relative;
+	@include justify-content(center);
+	text-align: center;
+	min-height: 100vh;
+  color: $white;
+
+  .background-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;    
+    background: url('//static.pexels.com/photos/9754/mountains-clouds-forest-fog.jpg');
+    background-size: cover;
+    
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient( to right, $violet, $purple);
+      @include opacity(.8); 
+    }
+  }
+  h1 {
+    font: 400 rem(32px) $serif;
+    margin-bottom: rem(25px);
+  }  
+  h3 {
+    font: 400 rem(14px) $sans-serif;
+    color: $white;
+    margin-top: rem(25px);
+    margin-bottom: rem(50px);
+    line-height: 1.7;
+  }
+  a.btn-outline {
+
+  }
+  .hero-content-area {
+    @include opacity(0);
+    margin-top: rem(180px);
+    @include animation(1s slidefade 1s forwards);
+  }
+  hr {
+    background-color: $teil;
+  }
+}
+
+// About Section
+
+.about {
+  @include flexbox();
+  padding: rem(65px) 0;
+
+  h3 {
+    color: $headline;
+  }
+  p {
+    color: $text;
+  }
+  .icon {
+
+  }
+
+}
+
+// Animations
+
+@keyframes fadein {
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes slidefade {
+	100% {
+		opacity: 1;
+		margin: 0;
+	}
+}
 
 @import "partials/_media-queries.scss";
