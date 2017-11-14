@@ -1,0 +1,127 @@
+
+/*-- BUTTONS --*/
+
+%btn {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  font-weight: normal;
+  border: 0;
+  cursor: pointer;
+  @include transition(all 0.14s ease-in-out);
+  @include border-radius(rem(5px));
+  &:hover, &:focus {
+    text-decoration: none;
+    outline: none;
+  } 
+  &:active {
+    top: rem(1px);
+  }
+}
+
+// Button Simple
+
+.btn-small {
+  @extend %btn;
+  background-color: $red;
+  border: none;
+  margin-top: rem(10px);
+  padding: rem(5px 10px);
+  color: $white;
+  font: 400 rem(14px) $serif;
+  border: 1px solid transparent;
+  text-shadow: rem(2px 2px 2px black(.9));
+  &:hover, 
+  .selected {
+    background-color: darken($red, 9%);
+  }
+}
+// Tiny Button
+.btn-tiny {
+  cursor: pointer;
+  position: absolute;
+  color: $red;
+  //border: none;
+
+  //top: 0px;
+  padding: rem(20px 0 0 20px);
+  font-size: rem(30px);
+  border: 1px solid transparent;
+  &:hover, 
+  &:active {
+    color: darken($red, 9%);
+  }
+}
+
+// Outline Button
+.btn-outline {
+  cursor: pointer;
+  color: $tan;
+  padding: rem(5px 20px);
+  margin: rem(15px auto 0 auto);
+  font-size: rem(18px);
+  text-transform: uppercase;
+  border: 2px solid $tan;
+  &:hover, 
+  &:active {
+    color: darken($tan, 20%);
+    border-color: darken($tan, 20%);
+  }
+}
+
+
+// Default Button
+
+.btn-default {
+  @extend %btn;
+  background-color: $red;
+  color: $white;
+  font: bold rem(18px) $sans-serif;
+  padding: rem(10px 60px);
+  line-height: rem(45px);
+	@include transition(all 0.5s);
+	position: relative;
+	overflow: hidden;
+  width: auto;
+  z-index: 0;
+  margin: 0 auto;
+  &:hover,
+  &:focus {
+    @include transform(translate(0, 0));
+    color: $white;
+
+    &:after {
+      @include opacity(1);
+      @include transform( translate(0, 0));
+    }
+  }
+
+  &.raised {
+    @include transition(all 0.1s);
+    background-color: $red;
+  }
+  .anim {
+    @include transform(translateY(-50%) translateX(-50%));
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+
+    &:before {
+      position: relative;
+      content: '';
+      display: block;
+      margin-top: 100%;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-radius: 50%;
+    }
+  }      
+}

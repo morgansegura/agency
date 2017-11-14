@@ -1,4 +1,26 @@
-$var: blue;
+/*
+  Site Name: 
+  Author: Morgan Segura
+  Stylesheet: Base
+*/
+
+@import "partials/_reset.scss"; 
+@import "partials/_variables.scss";
+@import "partials/_typography.scss";
+@import "partials/rem.scss";
+@import "partials/_functions.scss";
+@import "partials/_mixins.scss";
+@import "partials/_flex.scss";
+@import "modules/_buttons.scss";
+
+
+/* Defaults */
+
 body {
-  background: $var;
+  background-color: $red;
+  font-family: $sans-serif;
 }
+
+/* Basic Elements */
+
+@import "partials/_media-queries.scss";
