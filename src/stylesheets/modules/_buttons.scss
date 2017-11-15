@@ -21,11 +21,14 @@
 }
 
 // Outline Button
-.btn-outline {
+a.btn-outline {
+  display: inline-block;
+  position: relative;
+  text-align: center;
   cursor: pointer;
   color: $teil;
   padding: rem(15px);
-  margin: rem(0 auto);
+  margin: auto;
   font: 400 rem(16px) $alternate;
   text-transform: uppercase;
   border: 1px solid $teil;
