@@ -41,7 +41,7 @@ export default class Footer extends Component {
             <div className="social-media">
               <h4>Stay in Touch</h4>
               <form>
-                <input placeholder="Subscribe to our newsletter"/>
+                <input placeholder="Get our newsletter"/>
                 <button>
                   <i className="fa fa-paper-plane-o"></i>
                 </button>
